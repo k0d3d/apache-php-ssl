@@ -5,12 +5,12 @@ services:
         volumes:
             - '${DOCUMENT_ROOT}:/var/www/'
             - '${SITES_ENABLED}:/etc/apache2/sites-enabled'
-            - '${SSL_ROOT}:/etc/apache2/ssl-certs'
+            - '${SSL_ROOT}:/etc/apache2/ssl-cert'
         ports:
             - '80:80'
             - '443:443'
         environment:
-            - DOMAINS=pickmi.app
-            - WEBMASTER_MAIL=admin@pickmi.app
+            - 'DOMAINS=${DOMAINS}'
+            - 'WEBMASTER_MAIL=${WEBMASTER_MAIL}'
         container_name: pickmi-ssl
         image: 'pxlart/apache-php-ssl:1.0'
