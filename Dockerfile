@@ -63,11 +63,12 @@ COPY ./configs/options-ssl-apache.conf ${LETSENCRYPT_HOME}/options-ssl-apache.co
 # Copy the entrypoint  
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
+RUN mkdir /etc/apache2/ssl-cert
 
 # Set volumes etc
 WORKDIR /var/www/
 EXPOSE 80 443
-VOLUME ["/etc/apache2/sites-available", "/var/www" ]
+VOLUME ["/etc/apache2/sites-available", "/var/www", "/etc/apache2/ssl-cert" ]
 
 # Start all components
 CMD ["/sbin/entrypoint.sh"]

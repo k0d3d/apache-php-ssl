@@ -1,0 +1,16 @@
+
+version: '3.3'
+services:
+    httpd-php-ssl:
+        volumes:
+            - '${DOCUMENT_ROOT}:/var/www/'
+            - '${SITES_ENABLED}:/etc/apache2/sites-enabled'
+            - '${SSL_ROOT}:/etc/apache2/ssl-certs'
+        ports:
+            - '80:80'
+            - '443:443'
+        environment:
+            - DOMAINS=pickmi.app
+            - WEBMASTER_MAIL=admin@pickmi.app
+        container_name: pickmi-ssl
+        image: 'pxlart/apache-php-ssl:1.0'
