@@ -1,7 +1,7 @@
 
 version: '3.3'
 services:
-    httpd-php-ssl:
+    apache2-php-ssl:
         volumes:
             - '${DOCUMENT_ROOT}:/var/www/'
             - '${SITES_ENABLED}:/etc/apache2/sites-enabled'
@@ -12,5 +12,5 @@ services:
         environment:
             - 'DOMAINS=${DOMAINS}'
             - 'WEBMASTER_MAIL=${WEBMASTER_MAIL}'
-        container_name: pickmi-ssl
+        container_name: php-ssl
         image: 'pxlart/apache-php-ssl:1.0'

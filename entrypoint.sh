@@ -2,7 +2,7 @@
 
 # Let's Encrypt for SSL certificates
 echo "Generating SSL certificates via Let's Encrypt..."
-certbot certonly -n --standalone --expand --agree-tos --email $WEBMASTER_MAIL --domains $DOMAINS
+#certbot certonly -n --standalone --expand --agree-tos --email $WEBMASTER_MAIL --domains $DOMAINS
 
 # Apache2
 echo "Starting apache2"
